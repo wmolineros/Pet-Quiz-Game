@@ -1,3 +1,4 @@
+from quizgame
 
 #Start of the quiz with a welcome message 
 print("Welcome to the Pet Quiz Game!")
