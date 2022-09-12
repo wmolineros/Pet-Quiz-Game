@@ -53,7 +53,7 @@ def player_name():
             print(f"choose the best pet for your lifestyle, {player_name}!\n")
             print("Type in Y/N or y/n to answer each question.\n")
             print("Can't wait to see your result!")
-            game_contents()
+            data = quizgame.play_game()
    
     verify_player_name(player_name)
     return player_name().strip
