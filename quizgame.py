@@ -23,7 +23,7 @@ def play_game():
             score -= 1
             break
         else:
-            print("Input is invalid. Please select 'Y' or 'N'.\n")
+            print("Input is invalid. Please type 'Y' or 'N'.\n")
 
    # second question
 
@@ -39,6 +39,6 @@ def play_game():
             score -= 1
             break
         else:
-            print("Input is invalid. Please select 'Y' or 'N'.\n")
+            print("Input is invalid. Please type 'Y' or 'N'.\n")
 
         
