@@ -1,4 +1,4 @@
-from quizgame
+import quizgame
 
 #Start of the quiz with a welcome message 
 print("Welcome to the Pet Quiz Game!")
@@ -17,18 +17,18 @@ print("1. Play \n2. Discontinue \n3. Restart \n4. Advice for first time pet owne
 
 while True:
     game_option = input("How would you like to proceed?\n").strip()
-    print(\n)
+    print("\n")
 
-    if game_option is == "1":
+    if game_option == "1":
         print("Let's keep moving!\n")
         break 
-    elif game_option is == "2":
+    elif game_option == "2":
         print("Reconsidered a life long friend? Sayonara!\n")
         quit()
-    elif game_option is == "3":
+    elif game_option == "3":
         print("Let's begin again!\n")
         restart_game()
-    elif game_option is == "4":
+    elif game_option == "4":
         display_advice()
         game_option()
     else:
@@ -47,7 +47,7 @@ def player_name():
     player_name = input("Please enter your  name: \n")
 
     if verify_player_name(player_name):
-        print(\n)
+        print("\n")
         print(f"Aloha {player_name}, let's begin the quiz game!\n")
         print(f"I see you're an animal lover and would like to")
         print("choose the best pet for your lifestyle, {player_name}!\n")
@@ -55,8 +55,8 @@ def player_name():
         print("Can't wait to see your result!")
         game_menu()
     
-verify_player_name(player_name)
-return player_name().strip
+    verify_player_name(player_name)
+    return player_name().strip
 
 def verify_player_name(player_name):
     """
@@ -76,7 +76,7 @@ def verify_player_name(player_name):
 
     return True
 
-def display_advice:
+def display_advice():
     print("Before getting a pet, large or small, make sure you're being")
     print("honest with yourself about your lifestyle. You must ask ")
     print("yourself important questions that will allow you to make ")
