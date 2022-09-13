@@ -1,4 +1,4 @@
-Hello there and welcome to the quiz to let you know whether you should be a new pet parent!
+Hello there and welcome to the quiz that advices the best for your lifestyle!
 ## [Pet Game Quiz](https://pet-game-quiz.herokuapp.com/)
 
 <p>Do you find yourself in need of some companionship in your life from a fury friend but not sure if your current lifestyle is cut out for it?
