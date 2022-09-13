@@ -10,3 +10,15 @@ to handle a fury companion. In order to assess this for yourself moving forward,
 the user will answer 'yes' or 'no' and provide details as to whether they require more of a low or high maintentance pet.</p>
 
 ## Contents
+* Backend overview
+* Game Logic
+* Overview of the site: Contents
+     + Play
+     + Discontinue
+     + Restart
+     + Advice and Scores
+* Credits
+* Testing and errors identified
+* Deployment
+* Images 
+
