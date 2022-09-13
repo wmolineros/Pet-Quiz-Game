@@ -6,7 +6,7 @@ print("This game helps you find out what type of pet best suits your lifestyle."
 
 def game_contents():
     """
-    The player will select either 'yes' or 'no' for a series of questions. 
+    The player will select either 'yes' or 'no' for a series of statements. 
     Depending on how many of either at the end, the game will suggest the best type
     of pet for the person's lifestyle. The player will be able to select play, discontinue, 
     restart, or advice for first time pet owners. 
@@ -51,7 +51,7 @@ def player_name():
             print(f"Aloha {player_name}, let's begin the quiz game!\n")
             print("I see you're an animal lover and would like to")
             print(f"choose the best pet for your lifestyle, {player_name}!\n")
-            print("Type in Y/N or y/n to answer each question.\n")
+            print("Type in Y/N or y/n to answer each statement.\n")
             print("Can't wait to see your result!")
             data = quizgame.play_game()
    
