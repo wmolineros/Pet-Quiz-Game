@@ -58,6 +58,8 @@ def player_name():
             print(f"choose the best pet for your lifestyle, {player_name}!\n")
             print("Type in Y/N or y/n to answer each statement.\n")
             print("Can't wait to see your result!")
+            data = quizgame.play_game()
+            game_contents()
 
     verify_player_name(player_name)
     return player_name().strip
@@ -76,8 +78,9 @@ def verify_player_name(player_name):
             raise ValueError("Player name is too long.")
         if not player_name.isalpha():
             raise ValueError("Only include letters.")
-    except ValueError:
-        print("Oops! There was no valid entry. Please try again.")
+    except ValueError as e:
+        print("Oops! That was not a valid entry. Please try again.")
+        return False
 
     return True
 
