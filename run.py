@@ -1,4 +1,20 @@
+from datetime import datetime
+import gspread
+from google.oauth2.service_account import Credentials
 import quizgame
+
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('Pet_Game_Score')
+
 
 # Start of the quiz with a welcome message
 print("Welcome to the Pet Quiz Game!")
@@ -15,8 +31,7 @@ def game_contents():
     """
     print("\n")
     print("Press 1-4 to choose from below options:")
-    print("1. Play \n2. Discontinue \n3. Restart \n4. Advice for first time")
-    print("pet owners.\n")
+    print("1. Play \n2. Discontinue \n3. Restart \n4. Advice and scores")
 
     while True:
         game_option = input("How would you like to proceed?\n").strip()
@@ -32,7 +47,7 @@ def game_contents():
             print("Let's begin again!\n")
             restart_game()
         elif game_option == "4":
-            display_advice_details()
+            advice_and_score()
         else:
             print("This option is not valid. Please select between")
             print("option 1-4.")
@@ -48,6 +63,10 @@ def player_name():
         print("Do not input any numbers.")
         print("Maximum of 10 characters.")
         print("Blank spaces will be removed.")
+
+        now = datetime.now()
+
+        datetime_string = now.strftime("%m/%d/%Y %H:%M:%S")
 
         player_name = input("Please enter your name: \n")
 
@@ -91,13 +110,17 @@ def restart_game():
     """
     while True:
         data = quizgame.play_game()
+        now = datetime.now()
+        daytime_string = now.strftime("%m/%d/%Y %H:%M:%S")
+        score_sheet = SHEET.workshet("score")
+        score_sheet.append_row([data, " ", daytime_string])
         game_option()
 
 
-def display_advice_details():
+def advice_and_score():
     """
     This is the advice that is displayed for anyone looking to get more
-    information on becoming a pet parent.
+    information on becoming a pet parent and scores collected.
     """
     while True:
         print("Before getting a pet, large or small, make sure you're being")
@@ -116,9 +139,24 @@ def display_advice_details():
         print("the type of animal (low or high maintenance) that you should")
         print("get.\n Low maintenance pets include a cat, plant fish, hamster")
         print("or small bird.\n")
-        print("A high maintenance pet includes a dog, horse, rabbit, large")
-        print("or turtle (commonly confused as a low maintenance pet).")
+        print("A high maintenance pet, score of 6 and higher, includes a dog,")
+        print("horse, rabbit or large")
+        print("birds. A low maintenance pet, scores of below 6, include a cat")
+        print("plant or fish.")
         break
+
+    score_details = SHEET.worksheet("Score").get_all_values()[1:]
+
+    for data_info in score_details:
+        data_info[0] = int(data_info[0])
+
+    collected_data = sorted(score_details, reverse=True)
+
+    print("All scores recorded.\n")
+    print("Line \tScore \tName \t Time")
+
+    for line in range(5):
+        print(str(line+1) + "\t" + str(collected_data[line]))
 
 
 def main():
