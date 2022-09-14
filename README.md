@@ -27,11 +27,11 @@ the user will answer 'yes' or 'no' and provide details as to whether they requir
 <p>Python was the backend code used and it is a command-line buit application. The tools used include the following:</p>
 
 - [Github](https://github.com/): Code version control
-- [Gitpod](https://gitpod.io/workspaces)
-- [Heroku](https://heroku.com/)
-- [Lucid chart](https://lucid.app/documents#/dashboard)
-- [Google sheets](https://docs.google.com/spreadsheets/u/0/)
-- [Google cloud](https://console.cloud.google.com/)
+- [Gitpod](https://gitpod.io/workspaces): Creating and editing code
+- [Heroku](https://heroku.com/):Deployment
+- [Lucid chart](https://lucid.app/documents#/dashboard): Game logic creation
+- [Google sheets](https://docs.google.com/spreadsheets/u/0/): Store Data
+- [Google cloud](https://console.cloud.google.com/): Google sheet via API
 
 ### Game Logic
 <p>The game logic that I used began from the welcome message and led the user to steps 1-4.</p>
